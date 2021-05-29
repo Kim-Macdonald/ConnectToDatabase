@@ -17,15 +17,7 @@ Created on Wed May 12 14:10:11 2021
 
 
 #import packages I need
-import glob
-import os
-import subprocess
-import fnmatch
 import pandas as pd
-import numpy as np
-from datetime import datetime
-from openpyxl import Workbook
-
 import pyodbc 
 
 
@@ -34,7 +26,7 @@ import pyodbc
 server = '##.#.##.###' #(format is like 00.0.00.000)
 database = 'databasename' 
 username = 'YourUsername' 
-password = 'YourPasswordToDatabase' 
+password = 'YourPasswordForDatabase' 
 
 cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
 
@@ -60,7 +52,7 @@ tableResult = pd.read_sql("SELECT containerid, second_containerid, seq_container
 # Create Excel file with the results
 df_ploverMetadata=pd.DataFrame(tableResult)
 #df_ploverMetadata.to_excel("FileExample.xlsx",sheet_name='Results')
-df_ploverMetadata.to_csv('H:/2019-nCoV/Line Lists/COG-UK/RunsSummary/UpdatedLineages/All_Metadata.csv')
+df_ploverMetadata.to_csv('Path/To/OutputFile/All_Metadata.csv')
 
 
 
